@@ -7,6 +7,12 @@ class Employee{
     std::string Company;
     int Age;
 
+    Employee(std::string name, std::string comapny, int age){
+      Name = name;
+      Company=comapny;
+      Age=age;
+    }
+
     void IntroduceYourself(){
       std::cout<<"Name - "<<Name<<std::endl;
       std::cout<<"Company - "<<Company<<std::endl;
@@ -15,10 +21,7 @@ class Employee{
 };
 int main(int argc, char* argv[])
 {
-  Employee employee1;
-  employee1.Name = "Kudo";
-  employee1.Company = "Movie JP";
-  employee1.Age = 24;
+  Employee employee1 = Employee("Kudo", "JP-Movie", 25);
   employee1.IntroduceYourself();
   return 0;
 }
