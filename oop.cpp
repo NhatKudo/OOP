@@ -21,6 +21,22 @@ class Employee{
       return Name;  
     }
 
+    void setAge(int age){
+      Age=age;
+    }
+
+    int getAge(){
+      return Age;
+    }
+
+    void setCompany(std::string comapny){
+      Company=comapny;
+    }
+
+    std::string getCompany(){
+      return Company;
+    }
+
     void IntroduceYourself(){
       std::cout<<"Name - "<<Name<<std::endl;
       std::cout<<"Company - "<<Company<<std::endl;
