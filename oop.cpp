@@ -1,7 +1,11 @@
 #include <cmath>
 #include <iostream>
 #include <string>
-class Employee{
+class AbstractEmployee{
+  virtual void AskForPromotion()=0;
+};
+
+class Employee:AbstractEmployee{
   private:
     std::string Name;
     std::string Company;
@@ -42,14 +46,19 @@ class Employee{
       std::cout<<"Company - "<<Company<<std::endl;
       std::cout<<"Age - "<<Age<<std::endl;
     }
+
+    void AskForPromotion(){
+      if (Age>30)
+        std::cout<<Name<<" got promoted"<<std::endl;
+      else
+        std::cout<<Name<<" . Sorry, no promotion for you"<<std::endl;
+    }
 };
 int main(int argc, char* argv[])
 {
   Employee employee1 = Employee("Kudo", "JP-Movie", 25);
-  employee1.IntroduceYourself();
-  employee1.setName("Heji");
-  employee1.IntroduceYourself();
-  std::string nameEmployee1 = employee1.getName();
-  std::cout<<"name of employee1: "<<nameEmployee1<<std::endl;
+  Employee employee2 = Employee("Mori", "JP-school", 31);
+  employee1.AskForPromotion();
+  employee2.AskForPromotion();
   return 0;
 }
