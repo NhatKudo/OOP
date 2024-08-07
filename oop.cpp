@@ -7,9 +7,10 @@ class AbstractEmployee{
 
 class Employee:AbstractEmployee{
   private:
-    std::string Name;
     std::string Company;
     int Age;
+  protected:
+    std::string Name;
   public:
     Employee(std::string name, std::string comapny, int age){
       Name = name;
@@ -51,14 +52,29 @@ class Employee:AbstractEmployee{
       if (Age>30)
         std::cout<<Name<<" got promoted"<<std::endl;
       else
-        std::cout<<Name<<" . Sorry, no promotion for you"<<std::endl;
+        std::cout<<Name<<". Sorry, no promotion for you"<<std::endl;
     }
 };
+
+class Developer: public Employee{
+  public:
+    std::string FavProgrammingLanguage;
+
+    Developer(std::string name, std::string comapny, int age, std::string favProgrammingLanguage)
+    :Employee(name, comapny, age){
+      FavProgrammingLanguage = favProgrammingLanguage;
+    }
+
+    void FixBug(){
+      std::cout<< Name <<" is fixing bug using "<<FavProgrammingLanguage<<std::endl;
+    }
+};
+
 int main(int argc, char* argv[])
 {
-  Employee employee1 = Employee("Kudo", "JP-Movie", 25);
-  Employee employee2 = Employee("Mori", "JP-school", 31);
-  employee1.AskForPromotion();
-  employee2.AskForPromotion();
+  Developer dev1 = Developer("Kudo", "JP-Movie", 25, "C++");
+  dev1.FixBug();
+  dev1.AskForPromotion();
+  dev1.getAge();
   return 0;
 }
